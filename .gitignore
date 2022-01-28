@@ -1,0 +1,21 @@
+# Node.js dependencies
+/node_modules
+
+# Container and Resources
+/container
+/keys
+/logs
+
+# Prettierrc
+.prettierrc
+
+# Machine Dependents
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log
+.DS_Store
+

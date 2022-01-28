@@ -1,0 +1,46 @@
+{
+  "name": "delivery",
+  "version": "1.0.0",
+  "description": "Delivery Live Server",
+  "main": "cluster.js",
+  "scripts": {
+    "dev": "nodemon src/cluster.js",
+    "start": "cross-env PORT=8000 NODE_ENV=production node src/cluster.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://karl-maker@bitbucket.org/karl-maker/delivery.git"
+  },
+  "author": "Karl-Johan Bailey",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://bitbucket.org/karl-maker/delivery/issues"
+  },
+  "homepage": "https://bitbucket.org/karl-maker/delivery#readme",
+  "dependencies": {
+    "@socket.io/cluster-adapter": "^0.1.0",
+    "@socket.io/sticky": "^1.0.1",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.1",
+    "cross-env": "^7.0.3",
+    "crypto": "^1.0.1",
+    "dotenv-flow": "^3.2.0",
+    "express": "^4.17.2",
+    "handlebars": "^4.7.7",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.5",
+    "node-geocoder": "^3.28.0",
+    "nodemailer": "^6.7.2",
+    "nodemailer-express-handlebars": "^4.0.0",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "socket.io": "^4.4.1",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "16.5.0"
+  }
+}
