@@ -5,7 +5,7 @@
   "main": "cluster.js",
   "scripts": {
     "dev": "nodemon src/cluster.js",
-    "start": "cross-env PORT=8000 NODE_ENV=production node src/cluster.js"
+    "start": "cross-env NODE_ENV=production node src/cluster.js"
   },
   "repository": {
     "type": "git",
