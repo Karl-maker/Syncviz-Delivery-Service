@@ -2,10 +2,10 @@
   "name": "delivery",
   "version": "1.0.0",
   "description": "Delivery Live Server",
-  "main": "cluster.js",
+  "main": "server/cluster.js",
   "scripts": {
-    "dev": "nodemon cross-env NODE_ENV=development src/cluster.js",
-    "start": "cross-env NODE_ENV=production node src/cluster.js",
+    "dev": "nodemon cross-env NODE_ENV=development server/cluster.js",
+    "start": "cross-env NODE_ENV=production node server/cluster.js",
     "build": "next build"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "dotenv-flow": "^3.2.0",
     "express": "^4.17.2",
     "handlebars": "^4.7.7",
+    "heapdump": "^0.3.15",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.5",
     "next": "^12.0.9",
