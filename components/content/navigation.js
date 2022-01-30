@@ -79,7 +79,7 @@ export default function Navigation({ isPrivate, isOpen, isMobile }) {
       )}
       <div className="row m-2">
         <div className="col-12 m-0 p-0 text-center ">
-          <Link href="/">
+          <Link href="/" passHref>
             <Image
               src="/logo192.png"
               alt="Syncviz Logo"
@@ -103,7 +103,7 @@ export default function Navigation({ isPrivate, isOpen, isMobile }) {
         <div className="row " style={{ position: "relative" }}>
           <ul>
             {sideBarContent.map((element) => (
-              <Link href={element.link}>
+              <Link key={element.name} href={element.link} passHref>
                 <li className="ml-3 mb-4 row align-center d-flex flex-nowrap text-truncate ">
                   {!isOpen && !isMobile ? (
                     <div className="col-12 align-center text-center p-0 m-0">

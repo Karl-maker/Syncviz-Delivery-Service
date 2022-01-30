@@ -16,7 +16,7 @@ export default function SideBar({ isMobile }) {
   const sidebarStateController = sidebarServices.sidebarService;
   var width, position, left;
 
-  function closeSideBar(ref) {
+  function CloseSideBar(ref) {
     useEffect(() => {
       /**
        * Alert if clicked on outside of element
@@ -38,7 +38,7 @@ export default function SideBar({ isMobile }) {
     }, [ref, sidebarState.value]);
   }
 
-  closeSideBar(wrapperRef);
+  CloseSideBar(wrapperRef);
 
   if (isMobile) {
     position = "fixed";

@@ -17,7 +17,7 @@ function Help() {
                 <li className="breadcrumb-item">
                   <Link href="/">Home</Link>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">
+                <li className="breadcrumb-item active" aria-current="page">
                   Help
                 </li>
               </ol>
