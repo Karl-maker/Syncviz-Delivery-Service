@@ -4,4 +4,5 @@ module.exports = {
       "/": { page: "/" },
     };
   },
+  reactStrictMode: false,
 };
