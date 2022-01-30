@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon cross-env NODE_ENV=development src/cluster.js",
     "start": "cross-env NODE_ENV=production node src/cluster.js",
+    "heroku-postbuild": "npm --prefix npm install && npm run build",
     "build": "next build"
   },
   "repository": {
