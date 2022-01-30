@@ -1,25 +1,33 @@
+// Imports
+
+const cluster = require("cluster");
+const http = require("http");
+const logger = require("./log/server");
+const config = require("./config");
+const numCPUs = require("os").cpus().length;
+const { setupMaster, setupWorker } = require("@socket.io/sticky");
+const { createAdapter, setupPrimary } = require("@socket.io/cluster-adapter");
+const entryPoint = require("./server");
+const { connectDB } = require("./helper/db");
+const { corsOrigins } = require("./middleware/cors");
+const cors = require("cors");
+const { getArrayItemFromObject } = require("./util/info/array");
+const express = require("express");
+const app = express();
+const httpServer = http.createServer(app);
+
+// Variables
+
+const PORT = config.server.PORT;
+
+connectDB();
 clusterEntry();
 
 async function clusterEntry() {
-  // Imports
-
-  const cluster = require("cluster");
-  const http = require("http");
-  const logger = require("./log/server");
-  const config = require("./config");
-  const numCPUs = require("os").cpus().length;
-  const { setupMaster, setupWorker } = require("@socket.io/sticky");
-  const { createAdapter, setupPrimary } = require("@socket.io/cluster-adapter");
-  const entryPoint = require("./server");
-  const { connectDB } = require("./helper/db");
-  const { corsOrigins } = require("./middleware/cors");
-  const cors = require("cors");
-
-  // Varibles
-
-  const PORT = config.server.PORT;
-
-  connectDB();
+  const corsURLs = await getArrayItemFromObject(
+    await corsOrigins.origin,
+    "url"
+  );
 
   if (cluster.isMaster) {
     logger.info({
@@ -58,23 +66,11 @@ async function clusterEntry() {
   } else {
     // Imports
 
-    const { getArrayItemFromObject } = require("./util/info/array");
-    const express = require("express");
-
-    // Variables
-
-    const corsURLs = await getArrayItemFromObject(
-      await corsOrigins.origin,
-      "url"
-    );
-
     logger.info({
       message: `Worker ${process.pid} started`,
       timestamp: new Date().toString(),
     });
 
-    const app = express();
-    const httpServer = http.createServer(app);
     const io = require("socket.io")(httpServer, {
       cors: {
         origin: corsURLs,

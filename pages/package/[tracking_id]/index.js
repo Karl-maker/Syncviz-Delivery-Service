@@ -21,7 +21,7 @@ export default function TrackPackage() {
     if (!tracking_id) {
       return;
     } else {
-      const socket = io(`example/package-tracking`, {
+      const socket = io(`/package-tracking`, {
         query: {
           tracking_id: tracking_id,
         },
