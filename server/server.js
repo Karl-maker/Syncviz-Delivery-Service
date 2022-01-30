@@ -16,19 +16,19 @@ const { parse } = require("url");
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = async function entryPoint(io, app) {
-  require("./auth/passport");
-
   next_app.prepare().then(() => {
+    require("./auth/passport");
+
     app.use(passport.initialize());
     app.use(urlencodedParser);
     app.use(jsonParser);
     app.use("/api", router);
 
     // All routes not captured by /api will end up going to app
+
     app.get("*", (req, res, next) => {
       return handle(req, res);
     });
-
     app.get("/", (req, res) => {
       const parsedUrl = parse(req.url, true);
       const { pathname, query } = parsedUrl;
