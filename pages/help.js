@@ -13,8 +13,8 @@ function Help() {
 
           <div className="col-12 m-0 ">
             <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
                   <Link href="/">Home</Link>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">

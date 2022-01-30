@@ -29,7 +29,7 @@ function Header() {
         {isLoggedIn ? (
           <></>
         ) : (
-          <Link href={"/signup"}>
+          <Link href={"/signup"} passHref>
             <Button
               variant={
                 themeState.matches("darkmode") ? "outline-light" : "light"
