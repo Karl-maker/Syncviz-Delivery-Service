@@ -12,32 +12,38 @@ const dev = config.environment.NODE_ENV !== "production";
 const next_app = next({ dev });
 const handle = next_app.getRequestHandler();
 const { parse } = require("url");
+const logger = require("./log/server");
 //...
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = async function entryPoint(io, app) {
-  next_app.prepare().then(() => {
-    require("./auth/passport");
+  require("./auth/passport");
 
-    app.use(passport.initialize());
-    app.use(urlencodedParser);
-    app.use(jsonParser);
-    app.use("/api", router);
+  app.use(passport.initialize());
+  app.use(urlencodedParser);
+  app.use(jsonParser);
+  app.use("/api", router);
 
-    // All routes not captured by /api will end up going to app
-
-    app.get("*", (req, res, next) => {
-      return handle(req, res);
-    });
-    app.get("/", (req, res) => {
-      const parsedUrl = parse(req.url, true);
-      const { pathname, query } = parsedUrl;
-      return next_app.render(req, res, "/", query);
+  await next_app
+    .prepare()
+    .then(() => {
+      logger.info({ message: "Next.js App Prepared" });
+    })
+    .catch((e) => {
+      logger.error(e);
     });
 
-    app.use(errorHandler);
+  app.get("/", (req, res) => {
+    const parsedUrl = parse(req.url, true);
+    const { pathname, query } = parsedUrl;
+    next_app.render(req, res, "/", query);
   });
 
+  app.get("*", (req, res, next) => {
+    handle(req, res);
+  });
+
+  app.use(errorHandler);
   io.use(wrapper(passport.initialize()));
   websockets(io);
 };
