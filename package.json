@@ -5,9 +5,7 @@
   "main": "cluster.js",
   "scripts": {
     "dev": "nodemon cross-env NODE_ENV=development src/cluster.js",
-    "start": "cross-env NODE_ENV=production node src/cluster.js",
-    "build": "next build",
-    "export": "next export"
+    "start": "cross-env NODE_ENV=production node src/cluster.js"
   },
   "repository": {
     "type": "git",
