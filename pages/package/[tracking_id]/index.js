@@ -1,5 +1,3 @@
-import getConfig from "../../../config";
-const config = getConfig();
 import { io } from "socket.io-client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -23,14 +21,11 @@ export default function TrackPackage() {
     if (!tracking_id) {
       return;
     } else {
-      const socket = io(
-        `${config.socket.DELIVERY_SERVICE_URL}/package-tracking`,
-        {
-          query: {
-            tracking_id: tracking_id,
-          },
-        }
-      );
+      const socket = io(`example/package-tracking`, {
+        query: {
+          tracking_id: tracking_id,
+        },
+      });
       setSocket(socket);
       return () => socket.close();
     }
