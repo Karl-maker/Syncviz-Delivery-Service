@@ -1,0 +1,1 @@
+Go to Link: https://xstate.js.org/docs/recipes/react.html#global-state-react-context

@@ -1,0 +1,149 @@
+a {
+  text-decoration: none;
+}
+
+.sidebar {
+  transition: width 0.5s;
+  height: 100vh;
+  z-index: 999;
+}
+
+.sidebar-toggle-btn {
+  font-size: 30px;
+}
+
+.sidebar-toggle-btn :hover {
+  opacity: 0.8;
+  transition: 1s;
+}
+
+.sidebar ul {
+  text-decoration: none;
+  list-style: none;
+  color: #f5f6f7;
+}
+
+.sidebar li {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.lightmode ul li:hover {
+  background-color: #2c3e50;
+}
+
+.lightmode .highlight li {
+  background-color: #2c3e50;
+  opacity: 0.5;
+}
+
+.lightmode .highlight :hover {
+  opacity: 1;
+}
+
+.darkmode ul li:hover {
+  background-color: #34495e;
+}
+
+.darkmode .highlight li {
+  background-color: #34495e;
+  opacity: 0.5;
+}
+
+.darkmode .highlight :hover {
+  opacity: 1;
+}
+
+.sidebar ul li svg {
+  padding: 0;
+}
+
+.darkmode .sidebar {
+  background-color: #2c3e50;
+}
+
+.darkmode .sidebar-toggle-btn {
+  color: #f5f6f7;
+}
+
+.lightmode .sidebar-toggle-btn {
+  color: #1c1e21;
+}
+
+.lightmode .sidebar {
+  background-color: #34495e;
+}
+
+.lightmode {
+  background-color: #ecf0f1;
+  color: #1c1e21;
+  transition: all 0.5s ease;
+}
+
+.darkmode {
+  background-color: #34495e;
+  color: #f5f6f7;
+  transition: all 0.5s ease;
+}
+
+.darkmode h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #f5f6f7;
+}
+
+.lightmode h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #1c1e21;
+}
+
+.lightmode .secondary svg {
+  color: #f5f6f7;
+}
+
+.lightmode .primary svg {
+  color: #1c1e21;
+}
+
+.darkmode .secondary svg {
+  color: #f5f6f7;
+}
+
+.darkmode .primary svg {
+  color: #f5f6f7;
+}
+
+.instruction {
+  font-weight: bold;
+}
+
+.darkmode .instruction {
+  color: #f5f6f7;
+}
+
+.lightmode .instruction {
+  color: #1c1e21;
+}
+
+@media only screen and (max-width: 720px) {
+  html {
+    overflow: hidden;
+  }
+
+  .sidebar-toggle-btn {
+    font-size: 40px;
+  }
+
+  .sidebar-toggle-btn svg {
+    margin-bottom: 20px;
+  }
+
+  .sidebar {
+    transition: left 0.5s linear;
+  }
+}

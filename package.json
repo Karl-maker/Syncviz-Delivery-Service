@@ -4,8 +4,10 @@
   "description": "Delivery Live Server",
   "main": "cluster.js",
   "scripts": {
-    "dev": "nodemon src/cluster.js",
-    "start": "cross-env NODE_ENV=production node src/cluster.js"
+    "dev": "nodemon cross-env NODE_ENV=development src/cluster.js",
+    "start": "cross-env NODE_ENV=production node src/cluster.js",
+    "build": "next build",
+    "export": "next export"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   "dependencies": {
     "@socket.io/cluster-adapter": "^0.1.0",
     "@socket.io/sticky": "^1.0.1",
+    "@xstate/react": "^2.0.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
     "cross-env": "^7.0.3",
@@ -29,13 +32,21 @@
     "handlebars": "^4.7.7",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.5",
+    "next": "^12.0.9",
     "node-geocoder": "^3.28.0",
     "nodemailer": "^6.7.2",
     "nodemailer-express-handlebars": "^4.0.0",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.1.1",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-switch": "^6.0.0",
     "socket.io": "^4.4.1",
-    "winston": "^3.3.3"
+    "socket.io-client": "^4.4.1",
+    "winston": "^3.3.3",
+    "xstate": "^4.29.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
