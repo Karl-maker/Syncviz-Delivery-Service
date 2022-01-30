@@ -52,7 +52,12 @@
     "eslint-config-next": "^12.0.9",
     "nodemon": "^2.0.15"
   },
+  "cacheDirectories": [
+    "node_modules/",
+    ".next/cache/"
+  ],
   "engines": {
-    "node": "16.5.0"
+    "node": "16.5.0",
+    "npm": "7.19.1"
   }
 }
