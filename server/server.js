@@ -25,6 +25,9 @@ module.exports = async function entryPoint(io, app) {
     app.use("/api", router);
 
     // All routes not captured by /api will end up going to app
+    app.get("*", (req, res, next) => {
+      return handle(req, res);
+    });
 
     app.get("/", (req, res) => {
       const parsedUrl = parse(req.url, true);
@@ -32,9 +35,6 @@ module.exports = async function entryPoint(io, app) {
       return next_app.render(req, res, "/", query);
     });
 
-    app.get("*", (req, res, next) => {
-      return handle(req, res);
-    });
     app.use(errorHandler);
   });
 
