@@ -64,8 +64,6 @@ async function clusterEntry() {
       cluster.fork();
     });
   } else {
-    // Imports
-
     logger.info({
       message: `Worker ${process.pid} started`,
       timestamp: new Date().toString(),

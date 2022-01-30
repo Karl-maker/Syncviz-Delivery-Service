@@ -2,7 +2,7 @@
   "name": "delivery",
   "version": "1.0.0",
   "description": "Delivery Live Server",
-  "main": "server/cluster.js",
+  "main": "cluster.js",
   "scripts": {
     "dev": "nodemon cross-env NODE_ENV=development server/cluster.js",
     "start": "cross-env NODE_ENV=production node server/cluster.js",
