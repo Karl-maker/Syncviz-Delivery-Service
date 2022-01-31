@@ -1,5 +1,9 @@
 import { useContext, useState, useEffect } from "react";
-import { ThemeContext, SideBarContext } from "../context/wrapper";
+import {
+  ThemeContext,
+  SideBarContext,
+  AccountContext,
+} from "../context/wrapper";
 import { useActor } from "@xstate/react";
 import { CgMenuLeft } from "react-icons/cg";
 import { Button } from "react-bootstrap";
@@ -8,10 +12,11 @@ import Link from "next/link";
 function Header() {
   const sidebarServices = useContext(SideBarContext);
   const themeServices = useContext(ThemeContext);
+  const accountServices = useContext(AccountContext);
   const [sidebarState] = useActor(sidebarServices.sidebarService);
   const [themeState] = useActor(themeServices.themeService);
+  const [accountState] = useActor(accountServices.authService);
   const sidebarStateController = sidebarServices.sidebarService;
-  var isLoggedIn = false;
 
   return (
     <div className="row p-3">
@@ -26,9 +31,7 @@ function Header() {
         </div>
       </div>
       <div className="col-6 text-end align-center">
-        {isLoggedIn ? (
-          <></>
-        ) : (
+        {accountState.matches("visitor") ? (
           <Link href={"/signup"} passHref>
             <Button
               variant={
@@ -39,6 +42,8 @@ function Header() {
               Signup
             </Button>
           </Link>
+        ) : (
+          <></>
         )}
       </div>
     </div>

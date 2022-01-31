@@ -13,7 +13,7 @@ export const ThemeContext = createContext({});
 export const SideBarContext = createContext({});
 export const DeviceContext = createContext({});
 
-export const ContextProvider = ({ Component, pageProps }) => {
+export const Wrapper = ({ children }) => {
   // Services
   const authService = useInterpret(authMachine);
   const themeService = useInterpret(themeMachine);
@@ -50,9 +50,7 @@ export const ContextProvider = ({ Component, pageProps }) => {
               <div className="container-fluid primary">
                 {/* Header */}
                 <Header />
-                <main>
-                  <Component {...pageProps} />
-                </main>
+                <main>{children}</main>
               </div>
             </div>
           </AccountContext.Provider>

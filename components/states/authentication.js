@@ -1,7 +1,4 @@
 import { createMachine, assign } from "xstate";
-function authenticateUser() {
-  return {};
-}
 
 /*
 This will allow for smooth control of the authentication. 
@@ -25,30 +22,29 @@ export const authMachine = createMachine(
           },
         ],
       },
-      authenticate: {
-        invoke: {
-          src: (context, event) => authenticateUser(),
-          onDone: {
-            target: "business_admin",
-            actions: assign({
-              user: (context, event) => event.data,
-            }),
-          },
-          onError: {
-            target: "visitor",
-            actions: assign({
-              error: (context, event) => event.data,
-            }),
-          },
-        },
-      },
       visitor: {
         //Delete LocalStorage and Clear Cookies
         on: {
-          LOGIN: [{ target: "authenticate" }],
+          LOGIN_CLIENT: [{ target: "client" }],
+        },
+        on: {
+          LOGIN_ADMINISTRATOR: [{ target: "administrator" }],
+        },
+        on: {
+          LOGIN_DRIVER: [{ target: "driver" }],
         },
       },
-      business_admin: {
+      client: {
+        on: {
+          LOGOUT: { target: "visitor", actions: ["clearUserInfo"] },
+        },
+      },
+      administrator: {
+        on: {
+          LOGOUT: { target: "visitor", actions: ["clearUserInfo"] },
+        },
+      },
+      driver: {
         on: {
           LOGOUT: { target: "visitor", actions: ["clearUserInfo"] },
         },
