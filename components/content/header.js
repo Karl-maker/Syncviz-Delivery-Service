@@ -34,6 +34,7 @@ function Header() {
           <Button
             href="/signup"
             variant={themeState.matches("darkmode") ? "outline" : "contained"}
+            disableElevation
           >
             Sign Up
           </Button>
