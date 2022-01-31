@@ -121,15 +121,15 @@ export default function Navigation({ isPrivate, isOpen, isMobile }) {
               </Link>
             ))}
 
-            <div className="highlight">
+            <div
+              className="highlight"
+              onClick={(e) => {
+                e.preventDefault;
+                themeStateController.send("TOGGLE");
+              }}
+            >
               <li className="ml-3 mb-4 row align-center d-flex flex-nowrap text-truncate ">
-                <div
-                  className="col-12 align-center text-center p-0"
-                  onClick={(e) => {
-                    e.preventDefault;
-                    themeStateController.send("TOGGLE");
-                  }}
-                >
+                <div className="col-12 align-center text-center p-0">
                   {themeState.matches("darkmode") ? (
                     <MdNightlightRound
                       style={{

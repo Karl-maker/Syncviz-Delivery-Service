@@ -32,7 +32,7 @@ function Header() {
           <Link href={"/signup"} passHref>
             <Button
               variant={
-                themeState.matches("darkmode") ? "outline-light" : "light"
+                themeState.matches("darkmode") ? "outline-light" : "primary"
               }
               size="lg"
             >
