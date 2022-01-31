@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "react-bootstrap";
 import { MdOutlineError } from "react-icons/md";
 
 function NotFound() {

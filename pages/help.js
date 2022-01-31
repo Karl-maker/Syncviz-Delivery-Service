@@ -11,21 +11,8 @@ function Help() {
 
                 */}
 
-          <div className="col-12 m-0 ">
-            <nav aria-label="breadcrumb">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <Link href="/">Home</Link>
-                </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  Help
-                </li>
-              </ol>
-            </nav>
-          </div>
-          <div className="col-12 m-0 ">
-            <h1>Help</h1>
-          </div>
+          <div className="col-12 m-0 ">{/* Breadcrumb  */}</div>
+          <div className="col-12 m-0 "></div>
         </div>
         <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12  m-0 container">
           {/*

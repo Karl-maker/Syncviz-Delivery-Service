@@ -6,8 +6,7 @@ import {
 } from "../context/wrapper";
 import { useActor } from "@xstate/react";
 import { CgMenuLeft } from "react-icons/cg";
-import { Button } from "react-bootstrap";
-import Link from "next/link";
+import { Button } from "@mui/material";
 
 function Header() {
   const sidebarServices = useContext(SideBarContext);
@@ -30,18 +29,14 @@ function Header() {
           <CgMenuLeft />
         </div>
       </div>
-      <div className="col-6 text-end align-center">
+      <div className="col-6 text-end align-center pt-2">
         {accountState.matches("visitor") ? (
-          <Link href={"/signup"} passHref>
-            <Button
-              variant={
-                themeState.matches("darkmode") ? "outline-light" : "primary"
-              }
-              size="lg"
-            >
-              Signup
-            </Button>
-          </Link>
+          <Button
+            href="/signup"
+            variant={themeState.matches("darkmode") ? "outline" : "contained"}
+          >
+            Sign Up
+          </Button>
         ) : (
           <></>
         )}

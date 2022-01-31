@@ -35,7 +35,7 @@ export default function SideBar({ isMobile }) {
         // Unbind the event listener on clean up
         document.removeEventListener("mousedown", handleClickOutside);
       };
-    }, [ref, sidebarState.value]);
+    }, [ref, sidebarState]);
   }
 
   CloseSideBar(wrapperRef);

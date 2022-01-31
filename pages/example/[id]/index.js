@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Protect from "../../../components/protector/protect";
+import Protect from "../../../components/protect/protect";
 
 export default function Example() {
   const router = useRouter();
