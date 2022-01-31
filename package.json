@@ -5,6 +5,7 @@
   "main": "server/cluster.js",
   "scripts": {
     "dev": "nodemon cross-env NODE_ENV=development server/cluster.js",
+    "dev-next": "next dev",
     "start": "next build && cross-env NODE_ENV=production node server/cluster.js",
     "build": "next build",
     "lint": "next lint"
