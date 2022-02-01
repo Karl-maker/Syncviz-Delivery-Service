@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
-import { SideBarContext, ThemeContext } from "../context/wrapper";
+import { SideBarContext, ThemeContext } from "../../context/wrapper";
 import { useActor } from "@xstate/react";
 import Navigation from "./navigation";
 
@@ -35,7 +35,7 @@ export default function SideBar({ isMobile }) {
         // Unbind the event listener on clean up
         document.removeEventListener("mousedown", handleClickOutside);
       };
-    }, [ref, sidebarState]);
+    });
   }
 
   CloseSideBar(wrapperRef);

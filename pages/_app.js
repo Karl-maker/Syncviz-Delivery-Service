@@ -2,7 +2,7 @@ import Head from "next/head";
 import Script from "next/script";
 import "../styles/main.css";
 
-import { Wrapper } from "../components/context/wrapper";
+import { Wrapper } from "../context/wrapper";
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
-import { DeviceContext } from "../components/context/wrapper";
+import { DeviceContext } from "../context/wrapper";
+import WidgetWrapper from "../components/widgets/wrapper";
 
 function Home() {
   var deviceData = useContext(DeviceContext);

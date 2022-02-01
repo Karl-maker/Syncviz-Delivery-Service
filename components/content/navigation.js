@@ -5,7 +5,7 @@ import {
   SideBarContext,
   ThemeContext,
   AccountContext,
-} from "../context/wrapper";
+} from "../../context/wrapper";
 import { useActor } from "@xstate/react";
 import { AiFillHome, AiFillPhone } from "react-icons/ai";
 import { BsArrowLeftShort } from "react-icons/bs";

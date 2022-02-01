@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { AccountContext } from "../context/wrapper";
+import { AccountContext } from "../../context/wrapper";
 import { useRouter } from "next/router";
 import { useActor } from "@xstate/react";
 

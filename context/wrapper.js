@@ -1,12 +1,13 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useInterpret, useMachine, useActor } from "@xstate/react";
-import { authMachine } from "../states/authentication";
-import { themeMachine } from "../states/theme";
-import { sidebarMachine } from "../states/sidebar";
-import Header from "../content/header";
-import Footer from "../content/footer";
-import SideBar from "../content/sidebar";
-import useWindowDimensions from "../../utils/device/screen-size";
+import { authMachine } from "./state_machines/authentication";
+import { themeMachine } from "./state_machines/theme";
+import { sidebarMachine } from "./state_machines/sidebar";
+import Header from "../components/content/header";
+import SideBar from "../components/content/sidebar";
+import useWindowDimensions from "../utils/device/screen-size";
+
+// Go to Link: https://xstate.js.org/docs/recipes/react.html#global-state-react-context
 
 export const AccountContext = createContext({});
 export const ThemeContext = createContext({});

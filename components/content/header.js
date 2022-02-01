@@ -3,7 +3,7 @@ import {
   ThemeContext,
   SideBarContext,
   AccountContext,
-} from "../context/wrapper";
+} from "../../context/wrapper";
 import { useActor } from "@xstate/react";
 import { CgMenuLeft } from "react-icons/cg";
 import { Button } from "@mui/material";
