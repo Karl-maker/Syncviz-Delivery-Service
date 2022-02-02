@@ -90,6 +90,22 @@ a:active {
   transition: all 0.5s ease;
 }
 
+.darkmode .breadcrumbs {
+  color: #f5f6f7;
+}
+
+.lightmode .breadcrumbs {
+  color: #1c1e21;
+}
+
+.darkmode .breadcrumbs a {
+  color: #74b9ff;
+}
+
+.lightmode .breadcrumbs a {
+  color: #0984e3;
+}
+
 .lightmode,
 .darkmode a :hover {
   color: white;
