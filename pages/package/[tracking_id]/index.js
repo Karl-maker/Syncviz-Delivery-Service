@@ -21,11 +21,14 @@ export default function TrackPackage() {
     if (!tracking_id) {
       return;
     } else {
-      const socket = io(`/package-tracking`, {
-        query: {
-          tracking_id: tracking_id,
-        },
-      });
+      const socket = io(
+        `${process.env.DELIVERY_API_URL || ""}/package-tracking`,
+        {
+          query: {
+            tracking_id: tracking_id,
+          },
+        }
+      );
       setSocket(socket);
       return () => socket.close();
     }

@@ -161,7 +161,7 @@ h5 {
 }
 
 .lightmode .card-design-type-1 {
-  background-color: #34495e;
+  background-color: #0984e3;
   color: #ffff;
 }
 
@@ -193,6 +193,14 @@ h3,
 h4,
 h5 {
   color: #ffff;
+}
+
+textarea:focus,
+input:focus,
+button:focus {
+  outline: none;
+  text-decoration: none;
+  border: none;
 }
 
 @media only screen and (max-width: 720px) {
