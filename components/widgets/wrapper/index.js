@@ -1,9 +1,16 @@
-import { Paper } from "@mui/material";
+import { Card } from "@mui/material";
 
-export default function WidgetWrapper({ children, width, height }) {
+export default function WidgetWrapper({
+  children,
+  cardStyle,
+  containerStyle,
+  variant,
+}) {
   return (
-    <Paper className="p-3" variant="outlined">
-      {children}
-    </Paper>
+    <div className={`${containerStyle} p-2`}>
+      <Card className={`${cardStyle} p-3`} variant={variant || "outlined"}>
+        {children}
+      </Card>
+    </div>
   );
 }

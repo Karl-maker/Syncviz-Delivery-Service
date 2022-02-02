@@ -155,6 +155,46 @@ h5 {
   color: #1c1e21;
 }
 
+.darkmode .card-design-type-1 {
+  background-color: #0984e3;
+  color: #ffff;
+}
+
+.lightmode .card-design-type-1 {
+  background-color: #34495e;
+  color: #ffff;
+}
+
+.darkmode .card-design-type-1 .stand-alone {
+  color: #0984e3;
+  background-color: #ffff;
+  border-radius: 5px;
+}
+
+.lightmode .card-design-type-1 .stand-alone {
+  color: #34495e;
+  background-color: #ffff;
+  border-radius: 5px;
+}
+
+.darkmode .card-design-type-1 svg,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #ffff;
+}
+
+.lightmode .card-design-type-1 svg,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #ffff;
+}
+
 @media only screen and (max-width: 720px) {
   html {
     overflow: hidden;

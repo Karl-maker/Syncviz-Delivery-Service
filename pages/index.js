@@ -3,6 +3,10 @@ import { Breadcrumbs, Typography } from "@mui/material";
 import { DeviceContext } from "../context/wrapper";
 import WidgetWrapper from "../components/widgets/wrapper";
 
+// Widgets
+
+import TrackYourPackage from "../components/widgets/package/track-your-package";
+
 function Home() {
   var deviceData = useContext(DeviceContext);
 
@@ -12,6 +16,12 @@ function Home() {
         <Breadcrumbs aria-label="breadcrumb" className="breadcrumbs">
           <Typography>Home</Typography>
         </Breadcrumbs>
+      </div>
+      <div className="row mt-4">
+        {
+          //First Row Of Widgets
+        }
+        <TrackYourPackage />
       </div>
     </div>
   );
