@@ -37,6 +37,10 @@ export default function LiveProgressBar({ socket }) {
           setPrecentage(100);
           setColor("success");
           return;
+        case "CANCELLED":
+          setPrecentage(100);
+          setColor("danger");
+          return;
         default:
           setPrecentage(0);
           return;
