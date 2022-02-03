@@ -20,13 +20,13 @@ function Header() {
   return (
     <div className="row p-3">
       <div className="col-6 sidebar-toggle-btn align-center">
-        <div
-          onClick={(e) => {
-            e.preventDefault();
-            sidebarStateController.send("TOGGLE");
-          }}
-        >
-          <CgMenuLeft />
+        <div>
+          <CgMenuLeft
+            onClick={(e) => {
+              e.preventDefault();
+              sidebarStateController.send("TOGGLE");
+            }}
+          />
         </div>
       </div>
       <div className="col-6 text-end align-center pt-2">

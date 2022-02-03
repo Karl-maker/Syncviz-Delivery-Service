@@ -24,11 +24,29 @@ export const Wrapper = ({ children }) => {
   const [themeState] = useActor(themeService);
 
   const [sideBar, setSideBar] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
   const [currentSize, setCurrentSize] = useState({});
   const { height, width } = useWindowDimensions();
 
-  // create an event listener
+  // Set Theme
+
+  useEffect(() => {
+    // Go in Local Storage and Get Theme
+    try {
+      if (localStorage.getItem("themeState") === "darkmode") {
+        themeService.send("DARK");
+      } else {
+        // Default Theme
+        themeService.send("LIGHT");
+      }
+    } catch (err) {
+      // Default Theme If Not Key Exists
+      themeService.send("LIGHT");
+    }
+  }, []);
+
+  // Get Device Size
+
   useEffect(() => {
     if (width < 1000) {
       setIsMobile(true);
@@ -36,6 +54,10 @@ export const Wrapper = ({ children }) => {
       setIsMobile(false);
     }
   }, [width]);
+
+  if (themeState.value === "initialize") {
+    return <></>;
+  }
 
   return (
     <DeviceContext.Provider value={{ isMobile, currentSize }}>
