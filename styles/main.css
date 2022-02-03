@@ -208,7 +208,7 @@ button:focus {
   border: none;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1000px) {
   html {
     overflow: hidden;
   }

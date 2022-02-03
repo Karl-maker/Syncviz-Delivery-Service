@@ -44,7 +44,7 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
   return (
     <WidgetWrapper
       cardStyle={cardStyle || "col-12 card-design card-design-type-1"}
-      containerStyle={containerStyle || "col-sm-12 col-lg-4 col-md-4"}
+      containerStyle={containerStyle || "col-sm-12 col-lg-4 col-md-6"}
     >
       <div className="row">
         <div className="col-12 ">

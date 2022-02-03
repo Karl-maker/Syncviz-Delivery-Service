@@ -30,7 +30,7 @@ export const Wrapper = ({ children }) => {
 
   // create an event listener
   useEffect(() => {
-    if (width < 760) {
+    if (width < 1000) {
       setIsMobile(true);
     } else {
       setIsMobile(false);
