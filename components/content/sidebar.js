@@ -44,7 +44,7 @@ export default function SideBar({ isMobile }) {
     position = "fixed";
     width = "70%";
     if (sidebarState.matches("close")) {
-      left = "-500px";
+      left = "-800px";
     } else {
       left = "0px";
     }
