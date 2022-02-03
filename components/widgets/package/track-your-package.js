@@ -43,7 +43,7 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
 
   return (
     <WidgetWrapper
-      cardStyle={cardStyle || "col-12 card-design-type-1"}
+      cardStyle={cardStyle || "col-12 card-design card-design-type-1"}
       containerStyle={containerStyle || "col-sm-12 col-lg-4 col-md-4"}
     >
       <div className="row">
@@ -77,6 +77,8 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
             borderTopLeftRadius: "20px",
             borderBottomLeftRadius: "20px",
             borderStyle: "none",
+            color: "grey",
+            fontSize: "14px",
           }}
           className="col-8"
           value={trackingId}

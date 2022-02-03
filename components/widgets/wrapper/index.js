@@ -8,7 +8,7 @@ export default function WidgetWrapper({
 }) {
   return (
     <div className={`${containerStyle} p-2`}>
-      <Card className={`${cardStyle} p-3`} variant={variant || "outlined"}>
+      <Card className={`${cardStyle} p-3 `} variant={variant || "outlined"}>
         {children}
       </Card>
     </div>

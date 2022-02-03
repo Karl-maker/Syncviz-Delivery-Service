@@ -114,7 +114,9 @@ export default function Navigation({ isPrivate, isOpen, isMobile }) {
                       <p className="col-2 align-center text-center p-0 m-0">
                         {element.icon}
                       </p>
-                      <div className="col-10">{element.name}</div>
+                      <div className="col-10" style={{ cursor: "pointer" }}>
+                        {element.name}
+                      </div>
                     </div>
                   )}
                 </li>

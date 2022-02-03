@@ -4,6 +4,7 @@ a:focus,
 a:active {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .sidebar {
@@ -193,6 +194,10 @@ h3,
 h4,
 h5 {
   color: #ffff;
+}
+
+.card-design {
+  transition: height 0.5s;
 }
 
 textarea:focus,
