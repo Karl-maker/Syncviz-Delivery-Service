@@ -18,6 +18,7 @@ const {
 } = require("./controllers/http/delivery_center");
 const { inventoryController } = require("./controllers/http/inventory");
 const { updateController } = require("./controllers/http/update");
+const { authenticationController } = require("./controllers/http/auth");
 function websockets(io) {
   // Websockets
 
@@ -35,7 +36,8 @@ function websockets(io) {
     locationController(io),
     driverController(io),
     deliveryCenterController(io),
-    inventoryController(io)
+    inventoryController(io),
+    authenticationController(io)
   );
 }
 

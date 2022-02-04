@@ -16,7 +16,7 @@ export default function LiveProgressBar({ socket }) {
     }
 
     try {
-      switch (data.updates[0].status) {
+      switch (data.updates[data.updates.length - 1].status) {
         case "PENDING":
           setPrecentage(5);
           setColor("info");
@@ -60,7 +60,9 @@ export default function LiveProgressBar({ socket }) {
               style={{ opacity: "0.5", fontSize: "13px", cursor: "pointer" }}
               className="col-12 m-1"
             >
-              {replaceUnderScoreWithSpace(data.updates[0].status)}
+              {replaceUnderScoreWithSpace(
+                data.updates[data.updates.length - 1].status
+              )}
             </span>
             <div className=" col-12 mb-3">
               <ProgressBar
@@ -72,7 +74,9 @@ export default function LiveProgressBar({ socket }) {
             </div>
             <div className="col-12 text-end ml-1 ">
               <Link
-                href={`/package-tracking/${data.updates[0].tracking_id}`}
+                href={`/package-tracking/${
+                  data.updates[data.updates.length - 1].tracking_id
+                }`}
                 passHref
               >
                 <div>

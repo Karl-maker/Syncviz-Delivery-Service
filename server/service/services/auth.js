@@ -34,7 +34,7 @@ async function sendConfirmationEmail(email) {
     email,
     "Confirm Email",
     {
-      link: `${config.server.PROTOCOL}://${config.server.HOST}:${config.server.PORT}/auth/confirm-email?token=${confirmationToken}&email=${email}`,
+      link: `${config.server.URL}/auth/confirm-email?token=${confirmationToken}&email=${email}`,
     },
     "confirmEmail"
   );

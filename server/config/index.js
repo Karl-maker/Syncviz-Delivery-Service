@@ -36,6 +36,7 @@ const variables = {
     PROTOCOL: ENV.PROTOCOL || "http",
     HOST: ENV.HOST || "localhost",
     PORT: ENV.PORT || 3000,
+    URL: ENV.URL || "localhost:5000",
   },
 
   debug: {
