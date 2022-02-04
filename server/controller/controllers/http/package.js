@@ -131,7 +131,7 @@ function packageController(io) {
               header: "A Package For You",
               paragraph: `Hello ${package.customer_details.name}, a package is scheduled to be deliveried to you at ${date}. Thank you for using our service.`,
               date_of_delivery: date,
-              link: `${config.client.PROTOCOL}://${config.client.URL}/${package._id}`,
+              link: `${config.client.URL}/package/${package._id}`,
               link_info: "Check Package Journey",
             },
             "basicWithLink"
@@ -180,7 +180,7 @@ function packageController(io) {
               header: "Package Details",
               paragraph: `Hello ${package.customer_details.name}, your package is now in ${package.status}`,
               date_of_delivery: date,
-              link: `${config.client.PROTOCOL}://${config.client.URL}/${package._id}`,
+              link: `${config.client.URL}/package/${package._id}`,
               link_info: "Check Package Journey",
             },
             "basicWithLink"

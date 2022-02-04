@@ -81,7 +81,6 @@ const variables = {
   },
 
   client: {
-    PROTOCOL: ENV.CLIENT_PROTOCOL || "http",
     URL: ENV.CLIENT_URL || "localhost:8000",
   },
 

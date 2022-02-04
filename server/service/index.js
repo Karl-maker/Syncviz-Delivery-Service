@@ -8,6 +8,8 @@ const country = require("./services/country");
 const city = require("./services/city");
 const inventory = require("./services/inventory");
 const update = require("./services/update");
+const auth = require("./services/auth");
+const user = require("./services/user");
 
 module.exports = {
   vehicle,
@@ -20,4 +22,6 @@ module.exports = {
   city,
   inventory,
   update,
+  auth,
+  user,
 };

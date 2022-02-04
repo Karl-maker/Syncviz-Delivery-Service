@@ -96,7 +96,7 @@ function deliveryController(io) {
                   package_detail.customer_details.name
                 }, your delivery has been completed at ${getDate()}. Thank you for using our service, if you didn't recieve your package please contact us.`,
                 date_of_delivery: getDate(),
-                link: `${config.client.PROTOCOL}://${config.client.URL}/${tracking_id}`,
+                link: `${config.client.URL}/package/${tracking_id}`,
                 link_info: "Check Package Journey",
               },
               "basicWithLink"
@@ -142,7 +142,7 @@ function deliveryController(io) {
                   header: "We Are On The Way",
                   paragraph: `Hello ${package_detail.customer_details.name}, your package is on the way. Thank you for using our service.`,
                   date_of_delivery: getDate(),
-                  link: `${config.client.PROTOCOL}://${config.client.URL}/${tracking_id}`,
+                  link: `${config.client.URL}/package/${tracking_id}`,
                   link_info: "Track Your Package Live",
                 },
                 "basicWithLink"
@@ -156,7 +156,7 @@ function deliveryController(io) {
                   header: "We Are On The Way",
                   paragraph: `Hello, package with the ID #${package_detail._id} will be picked up today. Thank you for using our service.`,
                   date_of_delivery: getDate(),
-                  link: `${config.client.PROTOCOL}://${config.client.URL}/${tracking_id}`,
+                  link: `${config.client.URL}/package/${tracking_id}`,
                   link_info: "Check package details",
                 },
                 "basicWithLink"
@@ -194,7 +194,7 @@ function deliveryController(io) {
                   package_detail.customer_details.name
                 }, your delivery has been cancelled at ${getDate()}. We apologize for the inconvenience.`,
                 date_of_delivery: getDate(),
-                link: `${config.client.PROTOCOL}://${config.client.URL}/${tracking_id}`,
+                link: `${config.client.URL}/package/${tracking_id}`,
                 link_info: "View More Details",
               },
               "basicWithLink"
