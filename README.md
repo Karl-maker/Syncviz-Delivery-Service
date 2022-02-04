@@ -2,6 +2,8 @@
 
 This will manage all live connections and http(s) requests sent from all clients that deals with deliveries for the Company Syncviz
 
+[here](https://sync-delivery-prod.herokuapp.com) is the link to the test website.
+
 ## Installation
 
 Use the Terminal and enter this command after connecting git
