@@ -1,4 +1,8 @@
 const logger = require("../../log/server");
+const {
+  handleDuplicateKeyError,
+  handleValidationError,
+} = require("../../util/errors/error-formatting");
 
 module.exports = errorHandler;
 
@@ -27,6 +31,12 @@ function errorHandler(err, req, res, next) {
           timestamp: new Date().toString(),
         });
         return res.status(403).json({ message: err.message });
+      case err.name === "ValidationError":
+        //400 Errors
+        return handleValidationError(err, res);
+
+      case err.code && err.code == 11000:
+        return handleDuplicateKeyError(err, res);
       default:
         logger.error({
           message: err.message,
