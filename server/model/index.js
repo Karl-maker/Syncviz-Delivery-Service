@@ -10,6 +10,8 @@ const Delivery = require("./models/delivery");
 const Update = require("./models/updates");
 const Inventory = require("./models/inventory");
 const Origin = require("./models/origins");
+const Token = require("./models/tokens");
+const User = require("./models/users");
 
 module.exports = {
   Driver,
@@ -24,4 +26,6 @@ module.exports = {
   Update,
   Inventory,
   Origin,
+  Token,
+  User,
 };

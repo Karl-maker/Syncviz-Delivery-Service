@@ -5,7 +5,9 @@ const passport = require("passport");
 const jsonParser = bodyParser.json();
 const errorHandler = require("./middleware/error-handler");
 const wrapper = require("./middleware/wrapper");
-//TRY
+
+// Next.js
+
 const config = require("./config");
 const next = require("next");
 const dev = config.environment.NODE_ENV !== "production";
@@ -13,7 +15,7 @@ const next_app = next({ dev });
 const handle = next_app.getRequestHandler();
 const { parse } = require("url");
 const logger = require("./log/server");
-//...
+
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = async function entryPoint(io, app) {
