@@ -23,7 +23,7 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
-
+    setSocket(null);
     setSearch(trackingId);
   };
 
@@ -36,7 +36,9 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
           process.env.DELIVERY_API_URL || ""
         }/package-tracking?tracking_id=${search}`
       );
+
       setSocket(socket);
+
       return () => socket.close();
     }
   }, [setSocket, search]);

@@ -97,6 +97,15 @@ export default function LiveProgressBar({ socket }) {
       </SocketWrapper>
     );
   } catch (err) {
-    return <></>;
+    return (
+      <div className="row mt-3" style={{ cursor: "pointer" }}>
+        <span
+          style={{ opacity: "0.5", fontSize: "13px" }}
+          className="col-12 text-center"
+        >
+          Error
+        </span>
+      </div>
+    );
   }
 }

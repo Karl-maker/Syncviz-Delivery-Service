@@ -1,9 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import {
-  ThemeContext,
-  SideBarContext,
-  AccountContext,
-} from "../../context/wrapper";
+import { ThemeContext, SideBarContext } from "../../context/wrapper";
 import { useActor } from "@xstate/react";
 import { CgMenuLeft } from "react-icons/cg";
 import { Button } from "@mui/material";
@@ -11,11 +7,11 @@ import { Button } from "@mui/material";
 function Header() {
   const sidebarServices = useContext(SideBarContext);
   const themeServices = useContext(ThemeContext);
-  const accountServices = useContext(AccountContext);
   const [sidebarState] = useActor(sidebarServices.sidebarService);
   const [themeState] = useActor(themeServices.themeService);
-  const [accountState] = useActor(accountServices.authService);
   const sidebarStateController = sidebarServices.sidebarService;
+
+  const isLoggedIn = false;
 
   return (
     <div className="row p-3">
@@ -30,7 +26,7 @@ function Header() {
         </div>
       </div>
       <div className="col-6 text-end align-center pt-2">
-        {accountState.matches("visitor") ? (
+        {isLoggedIn ? (
           <Button
             href="/signup"
             variant={themeState.matches("darkmode") ? "outline" : "contained"}

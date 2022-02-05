@@ -1,11 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useState, useEffect } from "react";
-import {
-  SideBarContext,
-  ThemeContext,
-  AccountContext,
-} from "../../context/wrapper";
+import { SideBarContext, ThemeContext } from "../../context/wrapper";
 import { useActor } from "@xstate/react";
 import { AiFillHome, AiFillPhone } from "react-icons/ai";
 import { BsArrowLeftShort } from "react-icons/bs";
@@ -46,17 +42,11 @@ export default function Navigation({ isPrivate, isOpen, isMobile }) {
   const [themeState] = useActor(themeServices.themeService);
   const themeStateController = themeServices.themeService;
 
-  const accountServices = useContext(AccountContext);
-  const [accountState] = useActor(accountServices.authService);
-  const accountStateController = accountServices.authService;
-
-  const [sideBarContent, setSideBarContent] = useState([]);
+  const [sideBarContent, setSideBarContent] = useState(visitorNav);
 
   useEffect(() => {
-    if (accountState.matches("visitor")) {
-      setSideBarContent(visitorNav);
-    }
-  }, [accountState]);
+    // Based on account store change UI
+  }, []);
 
   return (
     <>
