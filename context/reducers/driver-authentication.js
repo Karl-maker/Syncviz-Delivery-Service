@@ -4,7 +4,7 @@ import { driverService } from "../../api/auth";
 let access_token = null;
 const initialState = async () => {
   if (access_token) {
-    await driverService
+    driverService
       .authenticate(access_token)
       .then((driver) => {
         return { loggedIn: true, driver };

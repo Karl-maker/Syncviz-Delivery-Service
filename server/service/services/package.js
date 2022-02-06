@@ -142,20 +142,9 @@ async function create({
   var geoCoder = nodeGeocoder(options);
 
   try {
-    var origin_location = await geoCoder
-      .geocode(
-        `${origin.address.street}, ${origin.address.city}, ${origin.address.country}`
-      )
-      .then((res) => {
-        return res;
-      })
-      .catch((err) => {
-        logger.error({
-          name: "Cannot Resolve Location",
-          message: err,
-          location: "origin_location",
-        });
-      });
+    var origin_location = await geoCoder.geocode(
+      `${origin.address.street}, ${origin.address.city}, ${origin.address.country}`
+    );
 
     origin.location = {
       type: "Point",
@@ -169,20 +158,9 @@ async function create({
   }
 
   try {
-    var destination_location = await geoCoder
-      .geocode(
-        `${destination.address.street}, ${destination.address.city}, ${destination.address.country}`
-      )
-      .then((res) => {
-        return res;
-      })
-      .catch((err) => {
-        logger.error({
-          name: "Cannot Resolve Location",
-          message: err,
-          location: "destination_location",
-        });
-      });
+    var destination_location = await geoCoder.geocode(
+      `${destination.address.street}, ${destination.address.city}, ${destination.address.country}`
+    );
 
     destination.location = {
       type: "Point",

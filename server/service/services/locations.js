@@ -14,17 +14,9 @@ async function create({ address, email, more_info }) {
   var geoCoder = nodeGeocoder(options);
 
   try {
-    var location = await geoCoder
-      .geocode(`${address.street}, ${address.city}, ${address.country}`)
-      .then((res) => {
-        return res;
-      })
-      .catch((err) => {
-        logger.error({
-          name: "Couldn't Resolve Location",
-          message: err.message,
-        });
-      });
+    var location = await geoCoder.geocode(
+      `${address.street}, ${address.city}, ${address.country}`
+    );
 
     location = {
       type: "Point",

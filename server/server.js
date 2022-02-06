@@ -18,7 +18,7 @@ const logger = require("./log/server");
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-module.exports = async function entryPoint(io, app) {
+module.exports = function entryPoint(io, app) {
   require("./auth/passport");
 
   app.use(passport.initialize());
@@ -26,7 +26,7 @@ module.exports = async function entryPoint(io, app) {
   app.use(jsonParser);
   app.use("/api", router);
 
-  await next_app
+  next_app
     .prepare()
     .then(() => {
       logger.info({ message: "Next.js App Prepared" });
