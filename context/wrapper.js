@@ -5,6 +5,8 @@ import { sidebarMachine } from "./state_machines/sidebar";
 import Header from "../components/content/header";
 import SideBar from "../components/content/sidebar";
 import useWindowDimensions from "../utils/device/screen-size";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 // Go to Link: https://xstate.js.org/docs/recipes/react.html#global-state-react-context
 
@@ -57,23 +59,25 @@ export const Wrapper = ({ children }) => {
   }
 
   return (
-    <DeviceContext.Provider value={{ isMobile, currentSize }}>
-      <SideBarContext.Provider value={{ sidebarService }}>
-        <ThemeContext.Provider value={{ themeService }}>
-          <div
-            style={{ display: "flex", height: "100vh" }}
-            className={`${themeState.value}`}
-          >
-            {/* Place Sidebar Here */}
-            <SideBar isMobile={isMobile} />
-            <div className="container-fluid primary">
-              {/* Header */}
-              <Header />
-              <main>{children}</main>
+    <Provider store={store}>
+      <DeviceContext.Provider value={{ isMobile, currentSize }}>
+        <SideBarContext.Provider value={{ sidebarService }}>
+          <ThemeContext.Provider value={{ themeService }}>
+            <div
+              style={{ display: "flex", height: "100vh" }}
+              className={`${themeState.value}`}
+            >
+              {/* Place Sidebar Here */}
+              <SideBar isMobile={isMobile} />
+              <div className="container-fluid primary">
+                {/* Header */}
+                <Header />
+                <main>{children}</main>
+              </div>
             </div>
-          </div>
-        </ThemeContext.Provider>
-      </SideBarContext.Provider>
-    </DeviceContext.Provider>
+          </ThemeContext.Provider>
+        </SideBarContext.Provider>
+      </DeviceContext.Provider>
+    </Provider>
   );
 };

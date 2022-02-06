@@ -6,6 +6,12 @@ const passport = require("passport");
 const { protect } = require("../../../auth/protect");
 
 function driverController(io) {
+  router.get(
+    `${TOP_ROUTE}`,
+    passport.authenticate("jwt", { session: false }),
+    getCurrentDriver
+  );
+
   router.post(
     `${TOP_ROUTE}`,
     passport.authenticate("jwt", { session: false }),
@@ -45,6 +51,10 @@ function driverController(io) {
         res.status(200).json({ driver });
       })
       .catch((err) => next(err));
+  }
+
+  function getCurrentDriver(req, res, next) {
+    res.status(200).json({ driver: req.user });
   }
 
   function deleteDriver(req, res, next) {

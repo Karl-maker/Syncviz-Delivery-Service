@@ -15,7 +15,7 @@ export default function Protect({ userType, children, href }) {
     } else {
       setIsLoading(false);
     }
-  }, [userType, router, href]);
+  }, [userType, router, href, isTest]);
 
   return (
     <>
