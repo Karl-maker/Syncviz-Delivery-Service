@@ -14,13 +14,14 @@ function Home() {
     <div className="col-12 p-3">
       <div role="presentation" className="col-12">
         <Breadcrumbs aria-label="breadcrumb" className="breadcrumbs">
-          <Typography>Home</Typography>
+          <Typography>Welcome</Typography>
         </Breadcrumbs>
       </div>
-      <div className="row mt-4">
+      <div className="row mt-lg-3 mt-sm-1">
         {
           //First Row Of Widgets
         }
+
         <TrackYourPackage />
       </div>
     </div>

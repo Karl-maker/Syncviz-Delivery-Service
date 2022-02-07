@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Script from "next/script";
 import "../styles/main.css";
+import "../styles/widget/card.css";
 
 import { Wrapper } from "../context/wrapper";
 

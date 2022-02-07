@@ -104,7 +104,15 @@ export default function Navigation({ isPrivate, isOpen, isMobile }) {
                       <p className="col-2 align-center text-center p-0 m-0">
                         {element.icon}
                       </p>
-                      <div className="col-10" style={{ cursor: "pointer" }}>
+                      <div
+                        className="col-10"
+                        style={{
+                          cursor: "pointer",
+                          color: themeState.matches("darkmode")
+                            ? "#ffff"
+                            : "#34495e",
+                        }}
+                      >
                         {element.name}
                       </div>
                     </div>
