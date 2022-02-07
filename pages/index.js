@@ -11,18 +11,27 @@ function Home() {
   var deviceData = useContext(DeviceContext);
 
   return (
-    <div className="col-12 p-3">
-      <div role="presentation" className="col-12">
-        <Breadcrumbs aria-label="breadcrumb" className="breadcrumbs">
-          <Typography>Welcome</Typography>
-        </Breadcrumbs>
-      </div>
-      <div className="row mt-lg-3 mt-sm-1">
-        {
-          //First Row Of Widgets
-        }
+    <div className="row">
+      <div className="col-lg-8 col-md-7 col-sm-12 ">
+        {/*
 
-        <TrackYourPackage />
+         Delivery Management System
+
+         1. Short description
+         2. Login options (Admin, Driver, Clients)
+
+         */}
+      </div>
+      <div className="col-lg-4 col-md-5 col-sm-12">
+        {/*
+
+         Side Widgets
+
+         1. Track package quickly
+         2. Start shipping today, create a package, /registration
+
+         */}
+        <TrackYourPackage containerStyle="col-12" />
       </div>
     </div>
   );

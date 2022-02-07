@@ -1,7 +1,9 @@
 import { useContext, useState, useEffect } from "react";
+import Link from "next/link";
 import { ThemeContext, SideBarContext } from "../../context/wrapper";
 import { useActor } from "@xstate/react";
 import { CgMenuLeft } from "react-icons/cg";
+import { AiOutlineGithub } from "react-icons/ai";
 import { Button } from "@mui/material";
 
 function Header() {
@@ -37,6 +39,18 @@ function Header() {
         ) : (
           <></>
         )}
+        <Link
+          href="https://github.com/Karl-maker/Syncviz-Delivery-Service"
+          passHref
+        >
+          <AiOutlineGithub
+            style={{
+              fontSize: "30px",
+              marginLeft: "20px",
+              color: themeState.matches("darkmode") ? "#ffff" : "#2d3436",
+            }}
+          />
+        </Link>
       </div>
     </div>
   );
