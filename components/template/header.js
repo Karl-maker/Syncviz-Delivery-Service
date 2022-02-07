@@ -26,7 +26,7 @@ function Header() {
         </div>
       </div>
       <div className="col-6 text-end align-center pt-2">
-        {isLoggedIn ? (
+        {!isLoggedIn ? (
           <Button
             href="/signup"
             variant={themeState.matches("darkmode") ? "outline" : "contained"}
