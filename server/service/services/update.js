@@ -1,6 +1,6 @@
 const { Update } = require("../../model");
 
-module.exports = { create, delete: _delete, getAll };
+module.exports = { create, delete: _delete, getAll, getCurrent };
 
 async function getAll(tracking_id) {
   const updates = await Update.find({
@@ -8,6 +8,13 @@ async function getAll(tracking_id) {
   }).lean();
 
   return updates;
+}
+
+async function getCurrent(tracking_id) {
+  // Get Latest
+  const update = await Update.findOne({
+    tracking_id,
+  });
 }
 
 async function create(tracking_id, status, description) {

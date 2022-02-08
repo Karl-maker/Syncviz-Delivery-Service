@@ -18,11 +18,7 @@ function updateController(io) {
     adminOnly,
     deleteUpdate
   );
-  router.get(
-    `${TOP_ROUTE}s/:tracking_id`,
-    passport.authenticate("jwt", { session: false }),
-    getAllUpdates
-  );
+  router.get(`${TOP_ROUTE}s/:tracking_id`, getAllUpdates);
 
   return router;
 

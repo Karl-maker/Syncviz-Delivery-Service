@@ -1,12 +1,12 @@
 import { FiPackage, FiClock, FiSearch } from "react-icons/fi";
 import { useActor } from "@xstate/react";
 import { useState, useEffect, useContext } from "react";
-import { io } from "socket.io-client";
 import { getDate } from "../../../utils/date/display-date";
 import WidgetWrapper from "../wrapper";
-import LiveProgressBar from "./live-progress-bar";
-import { Button, Typography } from "@mui/material";
+import UpdateSimpleProgressBar from "./update-simple-progress-bar";
+import { Button, Typography, Skeleton } from "@mui/material";
 import { ThemeContext } from "../../../context/wrapper";
+import axios from "axios";
 
 export default function TrackYourPackage({ containerStyle, cardStyle }) {
   // Search Package ID then view progression % with view more button
@@ -16,34 +16,44 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
 
   const [trackingId, setTrackingId] = useState("");
   const [search, setSearch] = useState("");
-  const [socket, setSocket] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const [updates, setUpdates] = useState(null);
+  const [resultMessage, setResultMessage] = useState(null);
 
   // 1. Get TrackingId from Search Bar
   // 2. Place in socket action
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setSocket(null);
-    setSearch("");
+
+    // Set Tracking ID on search to safeguard against changing the tracking ID causing re-renders
+
+    setLoading(true);
     setSearch(trackingId);
-    setTrackingId("");
+    //setTrackingId("");
   };
 
   useEffect(() => {
     if (!search || search === "") {
       return;
     } else {
-      const socket = io(
-        `${
-          process.env.DELIVERY_API_URL || ""
-        }/package-tracking?tracking_id=${search}`
-      );
+      axios
+        .get(
+          `/api/updates/${search}`,
+          {},
+          { "content-type": "application/x-www-form-urlencoded" }
+        )
+        .then((result) => {
+          setUpdates(result.data);
+        })
+        .catch((e) => setResultMessage("No Data Found"));
 
-      setSocket(socket);
+      setLoading(false);
 
-      return () => socket.close();
+      return;
     }
-  }, [setSocket, search]);
+  }, [search]);
 
   return (
     <WidgetWrapper
@@ -109,12 +119,37 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
       {/*
             Show If Socket Data Avaliable
     */}
-      {socket ? (
+      {updates ? (
         <>
-          <LiveProgressBar socket={socket} />
+          <UpdateSimpleProgressBar
+            data={updates.updates[updates.updates.length - 1]}
+          />
         </>
       ) : (
-        <></>
+        <>
+          <>
+            {loading && (
+              <>
+                <Skeleton animation="wave" />
+                <Skeleton animation="wave" />
+              </>
+            )}
+          </>
+          <>
+            {resultMessage && (
+              <>
+                <div className="row mt-3" style={{ cursor: "pointer" }}>
+                  <span
+                    style={{ opacity: "0.5", fontSize: "13px" }}
+                    className="col-12 text-center"
+                  >
+                    {resultMessage}
+                  </span>
+                </div>
+              </>
+            )}
+          </>
+        </>
       )}
     </WidgetWrapper>
   );
