@@ -7,8 +7,12 @@ export default function WidgetWrapper({
   variant,
 }) {
   return (
-    <div className={`${containerStyle} p-2`}>
-      <Card className={`${cardStyle} p-3 `} variant={variant || "outlined"}>
+    <div className={`${containerStyle} p-lg-4 p-md-3 p-sm-3`}>
+      <Card
+        className={`${cardStyle} p-3 `}
+        variant={variant || "outlined"}
+        sx={{ borderRadius: "20px", borderColor: "transparent" }}
+      >
         {children}
       </Card>
     </div>

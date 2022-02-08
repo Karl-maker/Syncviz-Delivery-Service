@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <div className="row p-3">
-      <div className="col-6 sidebar-toggle-btn align-center">
+      <div className="col-5 sidebar-toggle-btn align-center">
         <div>
           <CgMenuLeft
             onClick={(e) => {
@@ -27,11 +27,15 @@ function Header() {
           />
         </div>
       </div>
-      <div className="col-6 text-end align-center pt-2">
+      <div className="col-7 text-end align-center pt-2">
         {!isLoggedIn ? (
           <Button
             href="/signup"
             variant={themeState.matches("darkmode") ? "outline" : "contained"}
+            sx={{
+              borderRadius: "20px",
+              borderColor: "transparent",
+            }}
             disableElevation
           >
             Sign Up
