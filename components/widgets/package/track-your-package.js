@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 import { getDate } from "../../../utils/date/display-date";
 import WidgetWrapper from "../wrapper";
 import LiveProgressBar from "./live-progress-bar";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { ThemeContext } from "../../../context/wrapper";
 
 export default function TrackYourPackage({ containerStyle, cardStyle }) {
@@ -24,11 +24,13 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
   const handleSearch = (e) => {
     e.preventDefault();
     setSocket(null);
+    setSearch("");
     setSearch(trackingId);
+    setTrackingId("");
   };
 
   useEffect(() => {
-    if (!search) {
+    if (!search || search === "") {
       return;
     } else {
       const socket = io(
@@ -69,7 +71,7 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
       {/*
             Search Area
     */}
-      <div className="row mx-auto mt-3">
+      <div className="row mx-auto mt-3 mb-2">
         <input
           type="text"
           name="tracking_id"
@@ -85,7 +87,7 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
           className="col-8"
           value={trackingId}
           onChange={(event) => {
-            event.preventDefault();
+            event.persist();
             setTrackingId(event.target.value);
           }}
         />
@@ -107,7 +109,13 @@ export default function TrackYourPackage({ containerStyle, cardStyle }) {
       {/*
             Show If Socket Data Avaliable
     */}
-      {socket ? <LiveProgressBar socket={socket} /> : <></>}
+      {socket ? (
+        <>
+          <LiveProgressBar socket={socket} />
+        </>
+      ) : (
+        <></>
+      )}
     </WidgetWrapper>
   );
 }

@@ -22,7 +22,7 @@ function Home() {
          2. Login options (Admin, Driver, Clients)
 
          */}
-        {/* <StartDelivery /> */}
+        {/*<StartDelivery />*/}
       </div>
       <div
         className={`col-lg-4 col-md-5 col-sm-12 ${

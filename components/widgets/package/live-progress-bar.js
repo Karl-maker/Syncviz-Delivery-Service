@@ -8,6 +8,7 @@ import { replaceUnderScoreWithSpace } from "../../../utils/display-text/characte
 export default function LiveProgressBar({ socket }) {
   const [data, setData] = useState();
   const [precentage, setPrecentage] = useState(0);
+  const [error, setError] = useState(null);
   const [color, setColor] = useState("info");
 
   useEffect(() => {
@@ -51,9 +52,27 @@ export default function LiveProgressBar({ socket }) {
     }
   }, [data]);
 
+  if (error) {
+    return (
+      <div className="row mt-3" style={{ cursor: "pointer" }}>
+        <span
+          style={{ opacity: "0.5", fontSize: "13px" }}
+          className="col-12 text-center"
+        >
+          {error}
+        </span>
+      </div>
+    );
+  }
+
   try {
     return (
-      <SocketWrapper socket={socket} setData={setData} event="updates">
+      <SocketWrapper
+        socket={socket}
+        setData={setData}
+        setError={setError}
+        event="updates"
+      >
         {data ? (
           <div className="row mt-3" style={{ cursor: "pointer" }}>
             <span
