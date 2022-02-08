@@ -7,8 +7,8 @@ function replaceUnderScoreWithSpace(string) {
 }
 
 function capitalizeEveryFirstLetter(str) {
-  var splitStr = str.toLowerCase().split(" ");
-  for (var i = 0; i < splitStr.length; i++) {
+  let splitStr = str.toLowerCase().split(" ");
+  for (let i = 0; i < splitStr.length; i++) {
     // You do not need to check if i is larger than splitStr length, as your for does that for you
     // Assign it back to the array
     splitStr[i] =

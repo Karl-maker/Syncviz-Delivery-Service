@@ -40,7 +40,7 @@ async function getAll({
   const page = Math.max(0, page_number);
   const skip = page_number * page_size;
   const order = "asc";
-  var query, packages;
+  let query, packages;
 
   // Location Type
 
@@ -110,7 +110,7 @@ async function getAllByEmail(email, page_size, page_number) {
   const page = Math.max(0, page_number);
   const order = "asc";
 
-  var packages = await Package.find({ sent_by: email })
+  const packages = await Package.find({ sent_by: email })
     .limit(page_size)
     .skip(page_size * page)
     .sort(order); // get all
@@ -119,8 +119,8 @@ async function getAllByEmail(email, page_size, page_number) {
 }
 
 async function getByTrackingId(tracking_id) {
-  var package = await Package.findOne({ _id: tracking_id });
-  var updates = await update.getAll(tracking_id);
+  const package = await Package.findOne({ _id: tracking_id });
+  const updates = await update.getAll(tracking_id);
 
   return { package, updates };
 }
@@ -139,10 +139,10 @@ async function create({
   origin,
   expected_delivery_date,
 }) {
-  var geoCoder = nodeGeocoder(options);
+  let geoCoder = nodeGeocoder(options);
 
   try {
-    var origin_location = await geoCoder.geocode(
+    let origin_location = await geoCoder.geocode(
       `${origin.address.street}, ${origin.address.city}, ${origin.address.country}`
     );
 
@@ -158,7 +158,7 @@ async function create({
   }
 
   try {
-    var destination_location = await geoCoder.geocode(
+    let destination_location = await geoCoder.geocode(
       `${destination.address.street}, ${destination.address.city}, ${destination.address.country}`
     );
 
@@ -176,7 +176,7 @@ async function create({
     });
   }
 
-  var package = await new Package({
+  const package = await new Package({
     description,
     type_of_goods,
     amount,
@@ -310,7 +310,7 @@ async function setStatusReady(tracking_id, description, delivery_center) {
 }
 
 async function setStatus(tracking_id, details) {
-  var results;
+  let results;
 
   if (details.status === "CANCELLED") {
     results = await setStatusCancelled(tracking_id, details.description);

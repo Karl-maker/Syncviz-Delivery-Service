@@ -9,7 +9,7 @@ import StartDelivery from "../components/widgets/delivery/start-delivery";
 import TrackYourPackage from "../components/widgets/package/track-your-package";
 
 function Home() {
-  var deviceData = useContext(DeviceContext);
+  let deviceData = useContext(DeviceContext);
 
   return (
     <div className="row">

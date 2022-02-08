@@ -31,7 +31,7 @@ async function getOneByEmail(email) {
 }
 
 async function create(details) {
-  var {
+  let {
     email,
     first_name,
     last_name,
@@ -40,7 +40,7 @@ async function create(details) {
     address,
     works_at,
   } = details;
-  var driver = await new Driver({
+  let driver = await new Driver({
     email,
     license_id,
     mobile_number,

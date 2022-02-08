@@ -9,7 +9,7 @@ module.exports = {
 };
 
 async function create(details) {
-  var {
+  let {
     license,
     brand,
     model,
@@ -23,7 +23,7 @@ async function create(details) {
   } = details;
   based_at = mongoose.Types.ObjectId(based_at);
 
-  var vehicle = await new Vehicle({
+  let vehicle = await new Vehicle({
     license,
     brand,
     model,
@@ -47,7 +47,7 @@ async function _delete(_id) {
 }
 
 async function getOneByLicense(license) {
-  var vehicle = await Vehicle.findOne({ license: license });
+  let vehicle = await Vehicle.findOne({ license: license });
 
   return vehicle;
 }
@@ -61,7 +61,7 @@ async function getManyByDeliveryCenter(
   const page = Math.max(0, page_number);
   const order = "asc";
 
-  var vehicles = await Vehicle.find({ based_at: delivery_center_id })
+  let vehicles = await Vehicle.find({ based_at: delivery_center_id })
     .limit(page_size)
     .skip(page_size * page)
     .sort(order); // get all

@@ -11,10 +11,10 @@ let options = {
 module.exports = { create, delete: _delete, getAll };
 
 async function create({ address, email, more_info }) {
-  var geoCoder = nodeGeocoder(options);
+  let geoCoder = nodeGeocoder(options);
 
   try {
-    var location = await geoCoder.geocode(
+    let location = await geoCoder.geocode(
       `${address.street}, ${address.city}, ${address.country}`
     );
 
@@ -26,7 +26,7 @@ async function create({ address, email, more_info }) {
     logger.error({ name: "Couldn't Resolve Location", message: err.message });
   }
 
-  var location = await new Location({ address, email, more_info });
+  const location = await new Location({ address, email, more_info });
   await location.save();
 
   return location;

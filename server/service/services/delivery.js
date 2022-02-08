@@ -8,7 +8,7 @@ module.exports = {
 };
 
 async function create({ by, vehicle_used, tracking_id, type }) {
-  var delivery = await new Delivery({
+  let delivery = await new Delivery({
     by,
     type,
     with: vehicle_used,
@@ -34,6 +34,6 @@ async function _delete(tracking_id, email) {
 }
 
 async function getOneByTrackingNumber(tracking_id) {
-  var delivery = await Delivery.findOne({ tracking_id: tracking_id });
+  let delivery = await Delivery.findOne({ tracking_id: tracking_id });
   return delivery;
 }

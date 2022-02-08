@@ -15,10 +15,10 @@ async function getAllByCountry(country) {
 }
 
 async function create({ name, description, address }) {
-  var geoCoder = nodeGeocoder(options);
+  let geoCoder = nodeGeocoder(options);
 
   try {
-    var location = await geoCoder.geocode(
+    let location = await geoCoder.geocode(
       `${address.street_number} ${address.street_name}, ${address.city}, ${address.country}`
     );
 
@@ -32,7 +32,7 @@ async function create({ name, description, address }) {
   }
 
   try {
-    var delivery_center = await new Delivery_Center({
+    let delivery_center = await new Delivery_Center({
       address,
       email,
       more_info,

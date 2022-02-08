@@ -14,7 +14,7 @@ export default function SideBar({ isMobile }) {
 
   const themeStateController = themeServices.themeService;
   const sidebarStateController = sidebarServices.sidebarService;
-  var width, position, left;
+  let width, position, left;
 
   function CloseSideBar(ref) {
     useEffect(() => {

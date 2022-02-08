@@ -23,7 +23,7 @@ function authenticationController(io) {
   // Functions that will link to services
 
   function sendConfirmationEmail(req, res, next) {
-    var { email } = req.params;
+    const { email } = req.params;
     auth
       .sendConfirmationEmail(email)
       .then(() => {
@@ -35,7 +35,7 @@ function authenticationController(io) {
   }
 
   function confirmUser(req, res, next) {
-    var { email, token } = req.query;
+    const { email, token } = req.query;
     auth
       .confirmUserEmail(email, token)
       .then(() => {

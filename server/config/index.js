@@ -4,7 +4,7 @@ require("dotenv-flow").config({
 const fs = require("fs");
 const path = require("path");
 const ENV = process.env;
-var LOG_LOCATION;
+let LOG_LOCATION;
 
 const readENVFile = (location) => {
   try {

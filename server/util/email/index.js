@@ -16,13 +16,13 @@ function readHTMLFile(location) {
 
 function sendEmail(to, subject, payload, template) {
   const html = readHTMLFile(`./templates/${template}.html`);
+  let mailOptions;
+  let templateHTML = handlebars.compile(html);
 
-  var template = handlebars.compile(html);
-
-  var htmlToSend = template(payload);
+  let htmlToSend = templateHTML(payload);
 
   try {
-    var mailOptions = {
+    mailOptions = {
       from: config.email.ADDRESS,
       to: to,
       subject: subject,

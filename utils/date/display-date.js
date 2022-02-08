@@ -44,18 +44,18 @@ function displayDate(date) {
   return { month, day, year, day_nth };
 }
 
-const mongoDBTimeConverter = (date) => {
-  var created_date = new Date(date);
+const mongoDBTimeConverter = (input_date) => {
+  let created_date = new Date(input_date);
 
-  var year = created_date.getFullYear();
-  var month = monthNames[created_date.getMonth()];
-  var date = created_date.getDate();
-  var hour = created_date.getHours();
-  var min = created_date.getMinutes();
-  var sec = created_date.getSeconds();
-  var day_nth = created_date.getDate() + nth(created_date.getDate());
-  var full_time = hour + ":" + min + ":" + sec;
-  var full_date = day_nth + ", " + month + " " + year; // final date with time, you can use this according your requirement
+  let year = created_date.getFullYear();
+  let month = monthNames[created_date.getMonth()];
+  let date = created_date.getDate();
+  let hour = created_date.getHours();
+  let min = created_date.getMinutes();
+  let sec = created_date.getSeconds();
+  let day_nth = created_date.getDate() + nth(created_date.getDate());
+  let full_time = hour + ":" + min + ":" + sec;
+  let full_date = day_nth + ", " + month + " " + year; // final date with time, you can use this according your requirement
 
   return { full_date, full_time };
 };

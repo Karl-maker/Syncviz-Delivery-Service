@@ -9,7 +9,7 @@ module.exports = {
 };
 
 async function create({ email, first_name, last_name, password }) {
-  var user = await new User({
+  let user = await new User({
     first_name,
     last_name,
     email,
@@ -27,7 +27,7 @@ async function _delete(email) {
 }
 
 async function getOneByEmail(email) {
-  var user = await User.findOne({ email });
+  let user = await User.findOne({ email });
 
   return user;
 }

@@ -6,7 +6,7 @@ const config = require("../../config");
 const options = () => {
   // Go Database To Load Origins
 
-  var origins = Origin.find({ url: { $exists: 1 } }, { _id: 0, url: 1 });
+  let origins = Origin.find({ url: { $exists: 1 } }, { _id: 0, url: 1 });
 
   return { origin: origins };
 };

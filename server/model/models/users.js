@@ -68,7 +68,7 @@ const UserSchema = new mongoose.Schema(
 );
 
 UserSchema.pre("save", async function (next) {
-  var encrypted_password = await bcrypt.hash(this.password, saltOrRounds);
+  let encrypted_password = await bcrypt.hash(this.password, saltOrRounds);
   this.password = encrypted_password;
   next();
 });
@@ -76,7 +76,7 @@ UserSchema.pre("save", async function (next) {
 UserSchema.methods.isValidPassword = async function (password) {
   const user = this;
 
-  var isValid = await bcrypt.compare(password, this.password);
+  let isValid = await bcrypt.compare(password, this.password);
 
   return isValid;
 };

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 module.exports = { create, delete: _delete, getAll };
 
 async function create({ name, description }) {
-  var country = await new Country({
+  let country = await new Country({
     name,
     description,
   });

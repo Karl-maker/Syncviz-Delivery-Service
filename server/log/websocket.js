@@ -1,7 +1,7 @@
 const logger = require("./server");
 
 function logWS(socket, next) {
-  var user;
+  let user;
 
   try {
     user = socket.request.user || { email: "visitor" };
